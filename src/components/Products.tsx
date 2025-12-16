@@ -1,4 +1,5 @@
 import { Leaf, Droplets, Sun, Sprout, TreeDeciduous, Flower2 } from "lucide-react";
+import productsStore from "@/assets/products-store.jpg";
 
 const products = [
   {
@@ -46,6 +47,15 @@ const Products = () => {
           <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
             Oferecemos uma linha diversificada de produtos para o setor agro e urbano, com foco em qualidade, eficiência e sustentabilidade.
           </p>
+        </div>
+
+        {/* Featured Image */}
+        <div className="mb-16">
+          <img
+            src={productsStore}
+            alt="Interior da loja com produtos agrícolas, fertilizantes e ferramentas de jardinagem"
+            className="w-full h-[300px] md:h-[400px] object-cover rounded-2xl shadow-soft"
+          />
         </div>
 
         {/* Products Grid */}
