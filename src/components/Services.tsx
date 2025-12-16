@@ -1,4 +1,5 @@
 import { Headphones, FileSearch, Truck, Wrench, GraduationCap, Users } from "lucide-react";
+import servicesConsulting from "@/assets/services-consulting.jpg";
 
 const services = [
   {
@@ -48,24 +49,36 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-primary-foreground/15 transition-all duration-300 border border-primary-foreground/20"
-            >
-              <div className="w-14 h-14 bg-accent rounded-xl flex items-center justify-center mb-6">
-                <service.icon className="w-7 h-7 text-accent-foreground" />
+        {/* Image and Services Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Image */}
+          <div className="lg:sticky lg:top-24">
+            <img
+              src={servicesConsulting}
+              alt="Consultores agrícolas conversando com produtor rural no campo"
+              className="w-full h-[300px] md:h-[400px] object-cover rounded-2xl shadow-lg"
+            />
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-primary-foreground/15 transition-all duration-300 border border-primary-foreground/20"
+              >
+                <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mb-4">
+                  <service.icon className="w-6 h-6 text-accent-foreground" />
+                </div>
+                <h3 className="text-lg font-heading font-bold mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-primary-foreground/80 leading-relaxed text-sm">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="text-xl font-heading font-bold mb-3">
-                {service.title}
-              </h3>
-              <p className="text-primary-foreground/80 leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
