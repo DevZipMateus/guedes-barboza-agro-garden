@@ -50,22 +50,28 @@ const Products = () => {
         </div>
 
         {/* Featured Image */}
-        <div className="mb-10 md:mb-16">
+        <div className="mb-10 md:mb-16 relative rounded-xl md:rounded-2xl overflow-hidden shadow-xl">
           <img
             src={productsStore}
             alt="Interior da loja com produtos agrícolas, fertilizantes e ferramentas de jardinagem"
-            className="w-full h-[200px] sm:h-[280px] md:h-[350px] lg:h-[400px] object-cover rounded-xl md:rounded-2xl shadow-soft"
+            className="w-full h-[200px] sm:h-[280px] md:h-[350px] lg:h-[400px] object-cover"
           />
+          {/* Glassmorphism overlay */}
+          <div className="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-background/30 border-t border-background/20 p-4 md:p-6">
+            <p className="text-foreground font-heading font-semibold text-sm md:text-base lg:text-lg text-center">
+              Visite nossa loja e encontre tudo o que você precisa
+            </p>
+          </div>
         </div>
 
-        {/* Products Grid */}
+        {/* Products Grid with Glassmorphism */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {products.map((product) => (
             <div
               key={product.title}
-              className="group bg-card rounded-xl md:rounded-2xl p-5 md:p-6 lg:p-8 border border-border hover:border-primary/50 hover:shadow-soft transition-all duration-300"
+              className="group backdrop-blur-md bg-card/80 border border-border/50 rounded-xl md:rounded-2xl p-5 md:p-6 lg:p-8 hover:shadow-xl hover:bg-card/90 hover:border-primary/30 transition-all duration-300"
             >
-              <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-primary/10 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-primary/20 transition-colors">
+              <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 backdrop-blur-md bg-primary/20 border border-primary/30 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-primary/30 transition-colors">
                 <product.icon className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-primary" />
               </div>
               <h3 className="text-lg md:text-xl font-heading font-bold text-foreground mb-2 md:mb-3">

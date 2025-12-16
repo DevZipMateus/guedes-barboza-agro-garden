@@ -46,6 +46,11 @@
     --gradient-hero: linear-gradient(180deg, hsla(0 0% 0% / 0.6), hsla(0 0% 0% / 0.3));
     --shadow-soft: 0 4px 20px hsla(120 60% 40% / 0.15);
     --shadow-accent: 0 4px 20px hsla(30 95% 55% / 0.3);
+
+    /* Glassmorphism */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+    --glass-blur: 12px;
   }
 
   .dark {
