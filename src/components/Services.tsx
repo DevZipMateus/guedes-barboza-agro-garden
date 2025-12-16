@@ -36,44 +36,44 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="servicos" className="py-20 bg-primary text-primary-foreground">
-      <div className="container">
+    <section id="servicos" className="py-12 md:py-16 lg:py-20 bg-primary text-primary-foreground">
+      <div className="container px-4">
         {/* Section Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4">
             Nossos serviços
           </h2>
-          <div className="w-20 h-1 bg-accent mx-auto rounded-full mb-6" />
-          <p className="max-w-2xl mx-auto text-primary-foreground/80 text-lg">
+          <div className="w-16 md:w-20 h-1 bg-accent mx-auto rounded-full mb-4 md:mb-6" />
+          <p className="max-w-2xl mx-auto text-primary-foreground/80 text-sm md:text-base lg:text-lg px-2">
             Prestamos atendimento técnico e orientação especializada, buscando sempre indicar as melhores soluções para cada cliente.
           </p>
         </div>
 
         {/* Image and Services Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Image */}
-          <div className="lg:sticky lg:top-24">
+          <div className="lg:sticky lg:top-24 order-2 lg:order-1">
             <img
               src={servicesConsulting}
               alt="Consultores agrícolas conversando com produtor rural no campo"
-              className="w-full h-[300px] md:h-[400px] object-cover rounded-2xl shadow-lg"
+              className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover rounded-xl md:rounded-2xl shadow-lg"
             />
           </div>
 
           {/* Services Grid */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 order-1 lg:order-2">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-primary-foreground/15 transition-all duration-300 border border-primary-foreground/20"
+                className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-5 md:p-6 hover:bg-primary-foreground/15 transition-all duration-300 border border-primary-foreground/20"
               >
-                <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mb-4">
-                  <service.icon className="w-6 h-6 text-accent-foreground" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-accent rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-4">
+                  <service.icon className="w-5 h-5 md:w-6 md:h-6 text-accent-foreground" />
                 </div>
-                <h3 className="text-lg font-heading font-bold mb-2">
+                <h3 className="text-base md:text-lg font-heading font-bold mb-2">
                   {service.title}
                 </h3>
-                <p className="text-primary-foreground/80 leading-relaxed text-sm">
+                <p className="text-primary-foreground/80 leading-relaxed text-xs md:text-sm">
                   {service.description}
                 </p>
               </div>
