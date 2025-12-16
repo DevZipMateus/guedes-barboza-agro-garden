@@ -56,20 +56,22 @@ const Plans = () => {
           </p>
         </div>
 
-        {/* Plans Grid */}
+        {/* Plans Grid with Glassmorphism */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
               className={`rounded-xl md:rounded-2xl p-6 md:p-8 transition-all duration-300 ${
                 plan.highlight
-                  ? "bg-primary text-primary-foreground shadow-lg sm:scale-105"
-                  : "bg-card border border-border hover:shadow-soft"
+                  ? "backdrop-blur-xl bg-primary/95 text-primary-foreground shadow-2xl sm:scale-105 border border-primary/50"
+                  : "backdrop-blur-md bg-card/80 border border-border/50 hover:shadow-xl hover:bg-card/90"
               }`}
             >
               <div
                 className={`w-12 h-12 md:w-14 md:h-14 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-6 ${
-                  plan.highlight ? "bg-accent" : "bg-primary/10"
+                  plan.highlight 
+                    ? "backdrop-blur-md bg-accent/90 border border-accent/50" 
+                    : "backdrop-blur-md bg-primary/20 border border-primary/30"
                 }`}
               >
                 <plan.icon
@@ -115,8 +117,8 @@ const Plans = () => {
                 rel="noopener noreferrer"
                 className={`block w-full text-center py-2.5 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all ${
                   plan.highlight
-                    ? "bg-accent text-accent-foreground hover:bg-accent/90"
-                    : "bg-primary text-primary-foreground hover:bg-primary/90"
+                    ? "backdrop-blur-md bg-accent/90 text-accent-foreground hover:bg-accent border border-accent/50"
+                    : "backdrop-blur-md bg-primary/90 text-primary-foreground hover:bg-primary border border-primary/50"
                 }`}
               >
                 Saiba mais

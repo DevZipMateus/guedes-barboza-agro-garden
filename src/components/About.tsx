@@ -38,9 +38,10 @@ const About = () => {
         {/* History with Image */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 md:mb-20">
           <div className="order-2 lg:order-1">
-            <div className="bg-card rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-10 shadow-soft">
+            {/* Glassmorphism Card */}
+            <div className="backdrop-blur-md bg-card/80 border border-border/50 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-10 shadow-xl">
               <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-primary/10 rounded-lg md:rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 md:w-14 md:h-14 backdrop-blur-md bg-primary/20 border border-primary/30 rounded-lg md:rounded-xl flex items-center justify-center">
                   <Clock className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                 </div>
                 <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground">
@@ -59,20 +60,20 @@ const About = () => {
             <img
               src={aboutGarden}
               alt="Horta orgânica com vegetais frescos cultivados de forma sustentável"
-              className="rounded-xl md:rounded-2xl shadow-soft w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover"
+              className="rounded-xl md:rounded-2xl shadow-xl w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover"
             />
           </div>
         </div>
 
-        {/* Vision, Mission, Values */}
+        {/* Vision, Mission, Values with Glassmorphism */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-20">
           {values.map((item, index) => (
             <div
               key={item.title}
-              className="bg-card rounded-xl md:rounded-2xl p-6 md:p-8 shadow-soft hover:shadow-lg transition-shadow duration-300"
+              className="backdrop-blur-md bg-card/80 border border-border/50 rounded-xl md:rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-card/90 transition-all duration-300"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-primary/10 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-6">
+              <div className="w-12 h-12 md:w-14 md:h-14 backdrop-blur-md bg-primary/20 border border-primary/30 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-6">
                 <item.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
               </div>
               <h3 className="text-lg md:text-xl font-heading font-bold text-foreground mb-3 md:mb-4">
@@ -91,7 +92,7 @@ const About = () => {
             <img
               src={landscaping}
               alt="Jardim paisagístico com flores coloridas e gramado verde"
-              className="rounded-xl md:rounded-2xl shadow-soft w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover"
+              className="rounded-xl md:rounded-2xl shadow-xl w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover"
             />
           </div>
           <div className="text-center lg:text-left">
