@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -15,6 +15,9 @@ const navLinks = [
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,9 +27,20 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when clicking on a link
-  const handleLinkClick = () => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setIsMobileMenuOpen(false);
+    
+    if (!isHomePage && href.startsWith("#")) {
+      e.preventDefault();
+      navigate("/" + href);
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!isHomePage) {
+      e.preventDefault();
+      navigate("/");
+    }
   };
 
   return (
@@ -36,7 +50,11 @@ const Header = () => {
       }`}
     >
       <div className="container flex items-center justify-between px-4">
-        <a href="#inicio" className="flex items-center gap-2">
+        <a 
+          href={isHomePage ? "#inicio" : "/"} 
+          onClick={handleLogoClick}
+          className="flex items-center gap-2"
+        >
           <img
             src={logo}
             alt="Guedes Barboza Agro Garden"
@@ -49,15 +67,20 @@ const Header = () => {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
-              className="font-medium text-foreground transition-colors hover:text-primary text-sm xl:text-base"
+              href={isHomePage ? link.href : "/" + link.href}
+              onClick={(e) => handleLinkClick(e, link.href)}
+              className={`font-medium transition-colors hover:text-primary text-sm xl:text-base ${
+                isHomePage ? "text-foreground" : "text-foreground"
+              }`}
             >
               {link.label}
             </a>
           ))}
           <Link
             to="/vitrine"
-            className="font-medium text-foreground transition-colors hover:text-primary text-sm xl:text-base"
+            className={`font-medium transition-colors hover:text-primary text-sm xl:text-base ${
+              location.pathname === "/vitrine" ? "text-primary" : "text-foreground"
+            }`}
           >
             Vitrine
           </Link>
@@ -88,8 +111,8 @@ const Header = () => {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
-                onClick={handleLinkClick}
+                href={isHomePage ? link.href : "/" + link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className="text-foreground font-medium py-3 px-2 hover:text-primary hover:bg-muted rounded-lg transition-colors"
               >
                 {link.label}
@@ -97,8 +120,10 @@ const Header = () => {
             ))}
             <Link
               to="/vitrine"
-              onClick={handleLinkClick}
-              className="text-foreground font-medium py-3 px-2 hover:text-primary hover:bg-muted rounded-lg transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`font-medium py-3 px-2 hover:bg-muted rounded-lg transition-colors ${
+                location.pathname === "/vitrine" ? "text-primary" : "text-foreground hover:text-primary"
+              }`}
             >
               Vitrine
             </Link>
@@ -106,7 +131,7 @@ const Header = () => {
               href="https://wa.me/5555996862124"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={handleLinkClick}
+              onClick={() => setIsMobileMenuOpen(false)}
               className="bg-accent text-accent-foreground px-5 py-3 rounded-lg font-semibold text-center hover:bg-accent/90 transition-colors mt-2"
             >
               Fale conosco
