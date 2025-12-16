@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -54,6 +55,12 @@ const Header = () => {
               {link.label}
             </a>
           ))}
+          <Link
+            to="/vitrine"
+            className="font-medium text-foreground transition-colors hover:text-primary text-sm xl:text-base"
+          >
+            Vitrine
+          </Link>
           <a
             href="https://wa.me/5555996862124"
             target="_blank"
@@ -88,6 +95,13 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
+            <Link
+              to="/vitrine"
+              onClick={handleLinkClick}
+              className="text-foreground font-medium py-3 px-2 hover:text-primary hover:bg-muted rounded-lg transition-colors"
+            >
+              Vitrine
+            </Link>
             <a
               href="https://wa.me/5555996862124"
               target="_blank"
