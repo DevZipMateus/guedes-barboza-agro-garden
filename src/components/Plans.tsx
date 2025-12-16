@@ -43,65 +43,65 @@ const plans = [
 
 const Plans = () => {
   return (
-    <section id="planos" className="py-20 bg-muted">
-      <div className="container">
+    <section id="planos" className="py-12 md:py-16 lg:py-20 bg-muted">
+      <div className="container px-4">
         {/* Section Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
             Nossos planos
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6" />
-          <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
+          <div className="w-16 md:w-20 h-1 bg-primary mx-auto rounded-full mb-4 md:mb-6" />
+          <p className="max-w-2xl mx-auto text-muted-foreground text-sm md:text-base lg:text-lg px-2">
             Disponibilizamos planos flexíveis e personalizados pensando em oferecer praticidade, economia e parceria de longo prazo.
           </p>
         </div>
 
         {/* Plans Grid */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-2xl p-8 transition-all duration-300 ${
+              className={`rounded-xl md:rounded-2xl p-6 md:p-8 transition-all duration-300 ${
                 plan.highlight
-                  ? "bg-primary text-primary-foreground shadow-lg scale-105"
+                  ? "bg-primary text-primary-foreground shadow-lg sm:scale-105"
                   : "bg-card border border-border hover:shadow-soft"
               }`}
             >
               <div
-                className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
+                className={`w-12 h-12 md:w-14 md:h-14 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-6 ${
                   plan.highlight ? "bg-accent" : "bg-primary/10"
                 }`}
               >
                 <plan.icon
-                  className={`w-7 h-7 ${
+                  className={`w-6 h-6 md:w-7 md:h-7 ${
                     plan.highlight ? "text-accent-foreground" : "text-primary"
                   }`}
                 />
               </div>
 
-              <h3 className="text-2xl font-heading font-bold mb-2">
+              <h3 className="text-xl md:text-2xl font-heading font-bold mb-2">
                 {plan.name}
               </h3>
               <p
-                className={`mb-6 ${
+                className={`text-sm md:text-base mb-4 md:mb-6 ${
                   plan.highlight ? "text-primary-foreground/80" : "text-muted-foreground"
                 }`}
               >
                 {plan.description}
               </p>
 
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
+                  <li key={feature} className="flex items-start gap-2 md:gap-3">
                     <Check
-                      className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                      className={`w-4 h-4 md:w-5 md:h-5 mt-0.5 flex-shrink-0 ${
                         plan.highlight ? "text-accent" : "text-primary"
                       }`}
                     />
                     <span
-                      className={
+                      className={`text-sm md:text-base ${
                         plan.highlight ? "text-primary-foreground/90" : "text-foreground"
-                      }
+                      }`}
                     >
                       {feature}
                     </span>
@@ -113,7 +113,7 @@ const Plans = () => {
                 href="https://wa.me/5555996862124"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`block w-full text-center py-3 rounded-lg font-semibold transition-all ${
+                className={`block w-full text-center py-2.5 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all ${
                   plan.highlight
                     ? "bg-accent text-accent-foreground hover:bg-accent/90"
                     : "bg-primary text-primary-foreground hover:bg-primary/90"
