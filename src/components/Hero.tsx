@@ -25,7 +25,7 @@ const Hero = () => {
             <img 
               src={logo} 
               alt="Guedes Barboza Agro Garden" 
-              className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto mx-auto"
+              className="h-32 sm:h-44 md:h-56 lg:h-64 xl:h-72 w-auto mx-auto"
             />
             <h1 className="sr-only">Guedes Barboza Agro Garden</h1>
           </div>
