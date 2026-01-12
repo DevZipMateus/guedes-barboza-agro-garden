@@ -1,4 +1,5 @@
 import heroBg from "@/assets/hero-bg.jpg";
+import logo from "@/assets/logo.png";
 
 const Hero = () => {
   return (
@@ -19,9 +20,15 @@ const Hero = () => {
       <div className="container relative z-10 text-center pt-24 md:pt-20 px-4">
         {/* Glassmorphism Card */}
         <div className="backdrop-blur-lg bg-background/10 border border-background/20 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-14 max-w-4xl mx-auto shadow-2xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-background mb-4 animate-fade-in leading-tight">
-            Guedes Barboza Agro Garden
-          </h1>
+          {/* Logo visível + H1 oculto para SEO */}
+          <div className="mb-4 animate-fade-in">
+            <img 
+              src={logo} 
+              alt="Guedes Barboza Agro Garden" 
+              className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto mx-auto"
+            />
+            <h1 className="sr-only">Guedes Barboza Agro Garden</h1>
+          </div>
 
           <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-background/90 font-light mb-6 md:mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             Cultivando soluções, florescendo resultados
